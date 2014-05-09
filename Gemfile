@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'httparty'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -24,7 +26,21 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+group :development, :test do
+  gem 'spring'
+  gem 'guard' #watches folders for changes 'trip wire'
+  gem 'guard-rspec' #runs rspec
+  gem 'rspec-rails' #rspec for rails
+  gem 'pry-rails' #pry for rails
+  gem 'guard-bundler', require: false #watches the gem file
+  gem 'terminal-notifier-guard' #pops up guard notifier
+  gem 'shoulda-matchers' #tests validations/relationships on models
+  gem 'annotate'
+  gem 'jasmine'
+  gem 'capybara'
+  gem 'rails-erd'
+  gem 'coveralls'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
