@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: pup_promenade_production
-  username: pup_promenade
+  username: jonathanbarcus
   password: <%= ENV['PUP_PROMENADE_DATABASE_PASSWORD'] %>
