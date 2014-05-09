@@ -8,5 +8,6 @@ class User < ActiveRecord::Base
   # and neighborhoods
 
   has_many :dogs
+  has_many :recommendations
 
 end
