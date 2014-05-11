@@ -1,3 +1,13 @@
 <h1>Welcome to pupPromenade</h1>
 
+<% if logged_in? %>
 
+Welcome!
+
+<% else %>
+
+You need to sign up or sign in! <br><br>
+<a href="users/new">Sign Up</a> |
+<a href="/session/new">Login</a>
+
+<% end %>
