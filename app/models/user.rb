@@ -18,6 +18,10 @@
 
 class User < ActiveRecord::Base
 
+  # this is for bycrpt.  Account creation does not work
+  # without it.
+  has_secure_password
+
   belongs_to :neighborhoods
 
   # TODO Figure out User stuff

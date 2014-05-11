@@ -3,9 +3,15 @@ class SessionController < ApplicationController
   def new
   end
 
+  # this method will create a new session an make it
+  # unique to the current user by searching and finding
+  # the id number of the current e-mail address entered
+  # by the user.  If successful, it will redirect to the
+  # root page.  If not, it will direct the user to the
+  # log in page again
 
   def create
-    user = User.find_by(username: params[:username])
+    user = User.find_by(email: params[:email])
 
     if user && user.authenticate(params[:password])
 

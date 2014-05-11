@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users
-  resources :session
+
+
+  # these routes are specific to managing the sessions
+  get "/session/new" => "session#new"
+  post "/session" => "session#create"
+  get "/logout" => "session#destroy"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
