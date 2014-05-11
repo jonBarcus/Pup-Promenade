@@ -5,7 +5,7 @@
 ### Heroku
 
 
-PupPromenade is not currently live. Check back at a later time for the live version.
+http://pup-promenade.herokuapp.com/
 
 
 ### PivotalTracker
