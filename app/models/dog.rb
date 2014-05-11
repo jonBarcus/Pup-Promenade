@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: dogs
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  name        :string(255)
+#  age         :integer
+#  sex_id      :integer
+#  breed_id    :integer
+#  size_id     :integer
+#  temperment  :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Dog < ActiveRecord::Base
   belongs_to :user
 
