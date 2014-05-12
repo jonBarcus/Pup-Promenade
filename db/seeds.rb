@@ -105,6 +105,8 @@ large = Size.create({name: "Large"})
 
 # Here's an admin account
 
+
+# TODO delete admin account from file before pushing to github
 admin = User.create({first_name: "Admin", email: "admin@admin.com",
                      password: "hello1234", password_confirmation: "hello1234",
                      admin: true})
