@@ -8,7 +8,6 @@
 #  password_digest :string(255)
 #  image_url       :string(255)
 #  admin           :boolean          default(FALSE)
-#  type            :boolean
 #  bio             :text
 #  created_at      :datetime
 #  updated_at      :datetime
