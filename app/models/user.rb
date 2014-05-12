@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   # without it.
   has_secure_password
 
-  belongs_to :neighborhoods
+  # belongs_to :neighborhoods
 
   # TODO Figure out User stuff
   # Using a boolean to set WALKER/OWNER we need

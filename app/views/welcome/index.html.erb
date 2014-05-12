@@ -25,8 +25,11 @@ You are an owner
 
 <h3><%= current_owner.first_name %> <%= current_owner.last_name %></h3>
 <li>
-  <ul>Your Boro:          </ul>
-  <ul>Your Neighborhood:  </ul>
+  <ul>Your Boro:          <%= current_owner.boro.name %></ul>
+  <!-- # OPTIMIZE This neighborhood shit is ugly! -->
+  <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
+  <% binding.pry %>
+  <ul>Your Bio:           <%= current_owner.bio %></ul>
 </li>
 
 <a href ="/owners/profile">Configure Profile</a>

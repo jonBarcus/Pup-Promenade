@@ -20,4 +20,8 @@ class Owner < User
   has_secure_password
   has_one :owner_profile
   accepts_nested_attributes_for :owner_profile
+
+  # belongs_to :neighborhood, through: :boro
+  belongs_to :boro
+  has_one :neighborhood, through: :boro
 end
