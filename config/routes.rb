@@ -42,6 +42,9 @@ Rails.application.routes.draw do
   resources :owners
 
 
+  get "/walkers/profile" => "walkers#show"
+  post "/walkers/profile" => "walkers#edit"
+
   # these routes are specific to managing the sessions
   get "/session/new" => "session#new"
   post "/session" => "session#create"
