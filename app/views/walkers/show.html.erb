@@ -6,12 +6,14 @@
 
 <!-- need a form for skills -->
 
+<% binding.pry %>
 
 <%= form_for @walker do |f| %>
-  <%= f.fields_for :walker_profile, @walker.build_walker_profile do |profile| %>
+  <%= f.label(:image_url) %>
+  <%= f.text_field(:image_url) %>
+    <%= f.fields_for :walker_profile, @walker.build_walker_profile do |profile| %>
     <%= profile.label(:neighborhood_id) %>
-
-    <%= profile.collection_select(:skills_id, @skill, :id, :skill) %>
+    <%= profile.collection_select(:neighborhood_id, @neighborhood, :id, :name) %>
     <%= profile.label(:dog_id) %>
     <%= profile.collection_select(:dog_id, @dogs, :id) %>
   <% end %>
