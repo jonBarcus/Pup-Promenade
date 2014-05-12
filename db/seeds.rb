@@ -8,7 +8,10 @@
 
 Boro.delete_all
 Neighborhood.delete_all
+Sex.delete_all
+Size.delete_all
 User.delete_all
+
 
 queens = Boro.create({name: "Queens"})
 bronx = Boro.create({name: "Bronx"})
@@ -90,3 +93,12 @@ union_square = Neighborhood.create({boro_id: manhattan_id, name: "Union Square"}
 stuyv_town = Neighborhood.create({boro_id: manhattan_id, name: "Stuyvesant Town"})
 meatpacking_dist = Neighborhood.create({boro_id: manhattan_id, name: "Meatpacking District"})
 waterside_plaza = Neighborhood.create({boro_id: manhattan_id, name: "Waterside Plaza"})
+
+# Here are the sex (not gender, Cat(the person, not the pet)!)
+female = Sex.create({sex: "Female"})
+male = Sex.create({sex: "Male"})
+
+# Here are the dog sizes
+small = Size.create({name: "Small"})
+medium = Size.create({name: "Medium"})
+large = Size.create({name: "Large"})
