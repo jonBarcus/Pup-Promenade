@@ -1,15 +1,15 @@
 class OwnersController < ApplicationController
   def index
-    @owners = owner.all
+    @owners = Owner.all
   end
 
   def new
-    @owner = owner.new
+    @owner = Owner.new
     @owner.build_owner_profile
   end
 
   def create
-    @owner = owner.new(owner_params)
+    @owner = Owner.new(owner_params)
     if @owner.save
       redirect_to("/")
     else
@@ -18,17 +18,17 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    @owner = owner.includes(:owner_profile).find(params[:id])
+    @owner = Owner.includes(:owner_profile).find(params[:id])
     @owner.build_owner_profile unless @owner.owner_profile
   end
 
   def show
-    @owner = owner.find(params[:id])
+    @owner = Owner.find(params[:id])
     @owner_profile = @owner.owner_profile
   end
 
   def destroy
-    @owner = owner.find(params[:id])
+    @owner = Owner.find(params[:id])
     @owner.destroy
     session[:user_id] = nil
     redirect_to "/"
