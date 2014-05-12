@@ -6,6 +6,8 @@ class WalkersController < ApplicationController
 
   def new
     @walker = Walker.new
+    @boros = Boro.all
+    @skills = Skill.all
     @walker.build_walker_profile
   end
 
@@ -20,17 +22,17 @@ class WalkersController < ApplicationController
   end
 
   def edit
-    @walker = Walker.includes(:walker_profile).find(params[:id])
+    @walker = Walker.includes(:walker_profile).find(session[:user_id])
     @walker.build_walker_profile unless @walker.walker_profile
   end
 
   def show
-    @walker = Walker.find(params[:id])
+    @walker = Walker.find(session[:user_id])
     @walker_profile = @walker.walker_profile
   end
 
   def destroy
-    @walker = Walker.find(params[:id])
+    @walker = Walker.find(session[:user_id])
     @walker.destroy
     session[:user_id] = nil
     redirect_to "/"
