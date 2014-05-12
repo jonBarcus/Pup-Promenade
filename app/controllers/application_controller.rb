@@ -4,24 +4,39 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
-  # this method identifies the current user of our application
+  # this method identifies the current user(WALKER) of our application
   # by checking the database to indentify who the user is
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+  def current_walker
+    @current_walker ||= Walker.find_by(id: session[:user_id])
+  end
+
+  # this method identifies the current user(OWNER) of our application
+  # by checking the database to indentify who the user is
+  def current_owner
+    @current_owner ||= Owner.find_by(id: session[:user_id])
   end
 
 
-  # this method determines whether or not a user is signed
+  # this method determines whether or not a user(WALKER) is signed
   # in to the application.  This method is important for the
   # main page, as it will determine what is available when
   # a user is on the page
-  def logged_in?
+  def walker_logged_in?
+    current_user.present?
+  end
+
+  # this method determines whether or not a user(OWNER) is signed
+  # in to the application.  This method is important for the
+  # main page, as it will determine what is available when
+  # a user is on the page
+  def owner_logged_in?
     current_user.present?
   end
 
 
+
   # this allows the above methods to be available elsewhere
   # in the application
-  helper_method(:current_user, :logged_in?)
+  helper_method(:current_owner, :current_walker, :walker_logged_in?, :owner_logged_in?)
 
 end
