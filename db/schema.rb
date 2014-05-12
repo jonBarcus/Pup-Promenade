@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140512150942) do
     t.string   "password_digest"
     t.string   "image_url"
     t.boolean  "admin",           default: false
+    t.boolean  "type"
     t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
