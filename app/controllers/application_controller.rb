@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   # main page, as it will determine what is available when
   # a user is on the page
   def walker_logged_in?
-    current_user.present?
+    current_walker.present?
   end
 
   # this method determines whether or not a user(OWNER) is signed
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   # main page, as it will determine what is available when
   # a user is on the page
   def owner_logged_in?
-    current_user.present?
+    current_owner.present?
   end
 
 

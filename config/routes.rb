@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :users
+  resources :walkers
+  resources :owners
 
 
   # these routes are specific to managing the sessions
