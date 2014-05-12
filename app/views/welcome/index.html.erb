@@ -2,6 +2,22 @@
 
 <% if walker_logged_in? %>
 Welcome!
+
+You are a walker!
+
+<a href="/users/profile">Configure Profile</a>
+
+<p><h1>Name:</h1></p>
+<p><%= current_walker.first_name %> <%= current_walker.last_name %></p>
+<img src="<%= current_walker.image_url %>" alt="profile picture">
+<p<h2>Email:</h2></p>
+<p><%= current_walker.email %></p>
+<p<h2>Phone:</h2></p>
+<p><%= current_walker.phone %></p>
+
+<%= link_to "configure profile", walkers_profile_path %>
+
+
 <% elsif owner_logged_in? %>
 Welcome!
 

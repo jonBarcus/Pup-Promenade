@@ -1,0 +1,21 @@
+<!-- need a form neighborhoods
+
+< %= profile.collection_select(:neighborhood_id, @neighborhoods, :id, :name) %> -->
+
+<!-- need a form for dogs -->
+
+<!-- need a form for skills -->
+
+
+<%= form_for @walker do |f| %>
+  <%= f.fields_for :walker_profile, @walker.build_walker_profile do |profile| %>
+    <%= profile.label(:neighborhood_id) %>
+
+    <%= profile.collection_select(:skills_id, @skill, :id, :skill) %>
+    <%= profile.label(:dog_id) %>
+    <%= profile.collection_select(:dog_id, @dogs, :id) %>
+  <% end %>
+  <br>
+  <%= f.label(:bio) %>
+  <%= f.text_area(:bio) %>
+<% end %>

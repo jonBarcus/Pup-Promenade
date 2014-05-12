@@ -14,4 +14,5 @@
 
 class WalkerProfile < ActiveRecord::Base
   belongs_to :walker
+  # has_many :dogs, :neighborhoods, :skills, :reccomendations
 end

@@ -52,5 +52,4 @@ class OwnersController < ApplicationController
       :owner_profile_attributes => [:neighborhood_id, :dog_id]
       )
   end
-
 end

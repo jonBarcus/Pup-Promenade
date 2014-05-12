@@ -1,3 +1,36 @@
+# == Route Map (Updated 2014-05-12 15:25)
+#
+#      Prefix Verb   URI Pattern                 Controller#Action
+#        root GET    /                           welcome#index
+#       users GET    /users(.:format)            users#index
+#             POST   /users(.:format)            users#create
+#    new_user GET    /users/new(.:format)        users#new
+#   edit_user GET    /users/:id/edit(.:format)   users#edit
+#        user GET    /users/:id(.:format)        users#show
+#             PATCH  /users/:id(.:format)        users#update
+#             PUT    /users/:id(.:format)        users#update
+#             DELETE /users/:id(.:format)        users#destroy
+#     walkers GET    /walkers(.:format)          walkers#index
+#             POST   /walkers(.:format)          walkers#create
+#  new_walker GET    /walkers/new(.:format)      walkers#new
+# edit_walker GET    /walkers/:id/edit(.:format) walkers#edit
+#      walker GET    /walkers/:id(.:format)      walkers#show
+#             PATCH  /walkers/:id(.:format)      walkers#update
+#             PUT    /walkers/:id(.:format)      walkers#update
+#             DELETE /walkers/:id(.:format)      walkers#destroy
+#      owners GET    /owners(.:format)           owners#index
+#             POST   /owners(.:format)           owners#create
+#   new_owner GET    /owners/new(.:format)       owners#new
+#  edit_owner GET    /owners/:id/edit(.:format)  owners#edit
+#       owner GET    /owners/:id(.:format)       owners#show
+#             PATCH  /owners/:id(.:format)       owners#update
+#             PUT    /owners/:id(.:format)       owners#update
+#             DELETE /owners/:id(.:format)       owners#destroy
+# session_new GET    /session/new(.:format)      session#new
+#     session POST   /session(.:format)          session#create
+#      logout GET    /logout(.:format)           session#destroy
+#
+
 Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -5,7 +38,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
-  resources :users
   resources :walkers
   resources :owners
   resources :dogs
@@ -13,6 +45,9 @@ Rails.application.routes.draw do
   get "/owners/profile" => "owners#show"
   post "/owners/profile" => "owners#edit"
 
+
+  get "/walkers/profile" => "walkers#show"
+  post "/walkers/profile" => "walkers#edit"
 
   # these routes are specific to managing the sessions
   get "/session/new" => "session#new"
