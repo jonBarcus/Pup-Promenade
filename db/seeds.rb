@@ -102,3 +102,9 @@ male = Sex.create({sex: "Male"})
 small = Size.create({name: "Small"})
 medium = Size.create({name: "Medium"})
 large = Size.create({name: "Large"})
+
+# Here's an admin account
+
+admin = User.create({first_name: "Admin", email: "admin@admin.com",
+                     password: "hello1234", password_confirmation: "hello1234",
+                     admin: true})
