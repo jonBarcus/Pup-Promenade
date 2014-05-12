@@ -10,7 +10,6 @@ Boro.delete_all
 Neighborhood.delete_all
 Sex.delete_all
 Size.delete_all
-UserType.delete_all
 User.delete_all
 
 
@@ -103,12 +102,6 @@ male = Sex.create({sex: "Male"})
 small = Size.create({name: "Small"})
 medium = Size.create({name: "Medium"})
 large = Size.create({name: "Large"})
-
-
-# User Types
-
-owner_type = UserType.create({name: "Owner"})
-walker_type = UserType.create({name: "Walker"})
 
 # Here's an admin account
 # TODO delete admin account from file before pushing to github

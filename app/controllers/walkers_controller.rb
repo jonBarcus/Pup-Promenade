@@ -11,6 +11,7 @@ class WalkersController < ApplicationController
 
   def create
     @walker = Walker.new(walker_params)
+
     if @walker.save
       redirect_to("/")
     else
@@ -46,7 +47,9 @@ class WalkersController < ApplicationController
       :image_url,
       :password,
       :password_confirmation,
+      :type_id,
       :walker_profile_attributes => [:neighborhood_id, :dog_id, :skill_id, :recommendation_id]
+
       )
   end
 end
