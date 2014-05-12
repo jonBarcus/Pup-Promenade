@@ -5,15 +5,14 @@
   <%= f.text_field(:image_url) %>
   <br>
   <%= f.fields_for :owner_profile, @owner.build_owner_profile do |profile| %>
-    <% binding.pry %>
     <%= profile.label(:neighborhood_id) %>
     <%= profile.collection_select(:neighborhood_id, @neighborhoods, :id, :name) %>
-    <%= profile.label(:dog_id) %>
-    <%= profile.collection_select(:dog_id, @dogs, :id) %>
+
 
   <% end %>
   <br>
   <%= f.label(:bio) %>
   <%= f.text_area(:bio) %>
+  <%= f.submit %>
 
 <% end %>

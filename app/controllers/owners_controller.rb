@@ -25,9 +25,21 @@ class OwnersController < ApplicationController
 
   def show
     @owner = Owner.find(session[:user_id])
-    binding.pry
-    @neighborhoods = Neighborhood.find_by(id: @owner.boro_id)
+    @neighborhoods = Neighborhood.where(boro_id: @owner.boro_id)
+    @dogs = Dog.all
     @owner_profile = @owner.owner_profile
+  end
+
+  def update
+    @owner = Owner.find(session[:user_id])
+    @owner_profile = @owner.owner_profile
+
+    if @owner.update(owner_params)
+      redirect_to("/")
+    else
+      render :show
+    end
+
   end
 
   def destroy
@@ -47,6 +59,7 @@ class OwnersController < ApplicationController
       :boro_id,
       :phone,
       :image_url,
+      :bio,
       :password,
       :password_confirmation,
       :owner_profile_attributes => [:neighborhood_id, :dog_id]
