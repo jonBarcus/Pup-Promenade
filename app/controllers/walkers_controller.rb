@@ -44,7 +44,8 @@ class WalkersController < ApplicationController
       :email,
       :phone,
       :image_url,
-      :password_digest,
+      :password,
+      :password_confirmation,
       :walker_profile_attributes => [:neighborhood_id, :dog_id, :skill_id, :recommendation_id]
       )
   end

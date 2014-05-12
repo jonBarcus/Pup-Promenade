@@ -1,7 +1,8 @@
 <h1>Welcome to pupPromenade</h1>
 
-<% if logged_in? %>
-
+<% if walker_logged_in? %>
+Welcome!
+<% elsif owner_logged_in? %>
 Welcome!
 
 <a href="/logout">Logout</a>
@@ -9,7 +10,8 @@ Welcome!
 <% else %>
 
 You need to sign up or sign in! <br><br>
-<a href="users/new">Sign Up</a> |
+<a href="walkers/new">Sign Up as a Dog Walker</a> |
+<a href="owners/new">Sign Up as a Dog Owner</a> |
 <a href="/session/new">Login</a>
 
 <% end %>

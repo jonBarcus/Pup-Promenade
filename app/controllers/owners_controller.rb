@@ -43,7 +43,8 @@ class OwnersController < ApplicationController
       :email,
       :phone,
       :image_url,
-      :password_digest,
+      :password,
+      :password_confirmation,
       :owner_profile_attributes => [:neighborhood_id, :dog_id]
       )
   end
