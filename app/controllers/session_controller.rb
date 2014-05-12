@@ -16,8 +16,13 @@ class SessionController < ApplicationController
     if user && user.authenticate(params[:password])
 
       session[:user_id] = user.id
+      flash[:success] = "Thanks for logging in!"
+      # OPTIMIZE: make specific owner and walker paths for users
+      if user.is_a?(Owner)
       redirect_to("/")
-    else
+      elsif user.is_a?(Walker)
+      redirect_to("/")
+      else
       render(:new)
     end
   end
