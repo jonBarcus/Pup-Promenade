@@ -3,17 +3,18 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  name            :string(255)
 #  email           :string(255)
 #  phone           :string(255)
 #  password_digest :string(255)
 #  image_url       :string(255)
 #  admin           :boolean          default(FALSE)
-#  owner           :boolean
-#  neighborhood_id :integer
+#  type            :boolean
 #  bio             :text
 #  created_at      :datetime
 #  updated_at      :datetime
+#  first_name      :string(255)
+#  last_name       :string(255)
+#  type_id         :integer
 #
 
 class User < ActiveRecord::Base

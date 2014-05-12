@@ -24,6 +24,7 @@ class SessionController < ApplicationController
       redirect_to("/")
       else
       render(:new)
+      end
     end
   end
 
