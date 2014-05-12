@@ -6,6 +6,9 @@
   <%= f.label(:email) %>
   <%= f.email_field(:email) %>
   <br>
+  <%= f.label(:boro_id) %>
+  <%= f.collection_select(:boro_id, @boros, :id, :name) %>
+  <br>
   <%= f.label(:password) %>
   <%= f.password_field(:password) %>
   <%= f.label(:password_confirmation) %>

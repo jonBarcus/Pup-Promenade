@@ -5,6 +5,19 @@ Welcome!
 <% elsif owner_logged_in? %>
 Welcome!
 
+You are an owner
+
+<h3><%= current_owner.first_name %> <%= current_owner.last_name %></h3>
+<li>
+  <ul>Your Boro:          </ul>
+  <ul>Your Neighborhood:  </ul>
+</li>
+
+<a href ="/owners/profile">Configure Profile</a>
+
+<h4>Your Puppies!</h4>
+<p> This is where the puppies will populate </p>
+
 <a href="/logout">Logout</a>
 
 <% else %>

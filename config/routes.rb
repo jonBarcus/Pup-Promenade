@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :users
   resources :walkers
   resources :owners
+  resources :dogs
+
+  get "/owners/profile" => "owners#show"
+  post "/owners/profile" => "owners#edit"
 
 
   # these routes are specific to managing the sessions

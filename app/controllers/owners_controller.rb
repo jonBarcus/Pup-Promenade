@@ -5,6 +5,7 @@ class OwnersController < ApplicationController
 
   def new
     @owner = Owner.new
+    @boros = Boro.all
     @owner.build_owner_profile
   end
 
@@ -18,17 +19,19 @@ class OwnersController < ApplicationController
   end
 
   def edit
-    @owner = Owner.includes(:owner_profile).find(params[:id])
+    @owner = Owner.includes(:owner_profile).find(session[:user_id])
     @owner.build_owner_profile unless @owner.owner_profile
   end
 
   def show
-    @owner = Owner.find(params[:id])
+    @owner = Owner.find(session[:user_id])
+    binding.pry
+    @neighborhoods = Neighborhood.find_by(id: @owner.boro_id)
     @owner_profile = @owner.owner_profile
   end
 
   def destroy
-    @owner = Owner.find(params[:id])
+    @owner = Owner.find(session[:user_id])
     @owner.destroy
     session[:user_id] = nil
     redirect_to "/"
@@ -41,6 +44,7 @@ class OwnersController < ApplicationController
       :first_name,
       :last_name,
       :email,
+      :boro_id,
       :phone,
       :image_url,
       :password,
@@ -48,3 +52,5 @@ class OwnersController < ApplicationController
       :owner_profile_attributes => [:neighborhood_id, :dog_id]
       )
   end
+
+end
