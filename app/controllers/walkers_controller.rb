@@ -7,7 +7,7 @@ class WalkersController < ApplicationController
   def new
     @walker = Walker.new
     @boros = Boro.all
-    @skills = Skill.all
+    # @skills = Skill.all
     @walker.build_walker_profile
   end
 
