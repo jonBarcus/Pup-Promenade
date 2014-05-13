@@ -5,6 +5,9 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/rails'
 require 'coveralls'
+require 'factory_girl_rails'
+require 'factory_girl'
+require 'cucumber/rails'
 Coveralls.wear!('rails')
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -24,6 +27,8 @@ RSpec.configure do |config|
   # config.mock_with :flexmock
   # config.mock_with :rr
 
+  # for factory girl
+  config.include FactoryGirl::Syntax::Methods
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
