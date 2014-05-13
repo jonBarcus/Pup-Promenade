@@ -14,5 +14,6 @@
 
 class WalkerProfile < ActiveRecord::Base
   belongs_to :walker
-  has_many :neighborhoods
+  hstore_accessor :options,
+    neighborhoods: :hash
 end

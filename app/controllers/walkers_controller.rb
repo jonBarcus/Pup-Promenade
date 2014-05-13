@@ -32,6 +32,7 @@ class WalkersController < ApplicationController
   end
 
   def update
+    binding.pry
     @walker = Walker.find(session[:user_id])
     @walker_profile = @walker.walker_profile
     if @walker.update(walker_params)
