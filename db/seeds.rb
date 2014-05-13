@@ -10,6 +10,7 @@ Boro.delete_all
 Neighborhood.delete_all
 Sex.delete_all
 Size.delete_all
+Breed.delete_all
 User.delete_all
 
 
@@ -102,6 +103,16 @@ male = Sex.create({sex: "Male"})
 small = Size.create({name: "Small"})
 medium = Size.create({name: "Medium"})
 large = Size.create({name: "Large"})
+
+# Here are the dog breeds
+# http://en.wikipedia.org/wiki/List_of_dog_breeds
+affenpinscher = Breed.create({name: "Affenpinscher"})
+afghan_hound = Breed.create({name: "Afghan Hound"})
+afghan_shepherd = Breed.create({name: "Afghan Shepherd"})
+aidi = Breed.create({name: "Aidi"})
+airedale_terrier = Breed.create({name: "Airedale Terrier"})
+akbash = Breed.create({name: "Akbash"})
+akita_inu = Breed.create({name: "Akita Inu"})
 
 # Here's an admin account
 # TODO delete admin account from file before pushing to github
