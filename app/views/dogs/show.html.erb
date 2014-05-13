@@ -1,7 +1,10 @@
 <h3> <%= @dog.name %> </h3>
 
-<%= link_to "Home", root_path %> |
-<%= link_to "Edit", edit_dog_path(@dog) %>
+<%= button_to "Home", root_path %>
+<%= button_to "Edit", edit_dog_path(@dog) %>
+<%= form_for(@dog, {:method => :delete}) do |f| %>
+<%= f.submit "Remove" %>
+<% end %>
 
 <p>Age:  <%= @dog.age %> </p>
 <p>Size:  <%= Size.find_by(id: @dog.size_id).name %> </p>

@@ -39,7 +39,12 @@ class DogsController < ApplicationController
     else
       render :edit
     end
+  end
 
+  def destroy
+    @dog = Dog.find_by(id: params[:id])
+    @dog.delete
+    redirect_to("/")
   end
 
   private
