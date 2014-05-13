@@ -38,8 +38,12 @@ You are an owner
 
 <% binding.pry %>
 <h4>Your Puppies!</h4>
-<p> This is where the puppies will populate </p>
-
+<% @dogs.each do |dog| %>
+<li>
+  <ul><%=dog.name %></ul>
+  <% binding.pry %>
+<% end %>
+</li>
 <a href="/logout">Logout</a>
 
 <% else %>
