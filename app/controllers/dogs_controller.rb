@@ -20,6 +20,27 @@ class DogsController < ApplicationController
     end
   end
 
+  def show
+    @dog = Dog.find_by(id: params[:id])
+  end
+
+  def edit
+    @dog = Dog.find_by(id: params[:id])
+    @sexes = Sex.all
+    @sizes = Size.all
+    @breeds = Breed.all
+  end
+
+  def update
+    @dog = Dog.find_by(id: params[:id])
+
+    if @dog.update(dog_params)
+      redirect_to @dog
+    else
+      render :edit
+    end
+
+  end
 
   private
 

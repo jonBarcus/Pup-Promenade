@@ -24,26 +24,23 @@ Welcome!
 You are an owner
 
 <h3><%= current_owner.first_name %> <%= current_owner.last_name %></h3>
-<li>
+
   <ul>Your Boro:          <%= current_owner.boro.name %></ul>
   <!-- # OPTIMIZE This neighborhood shit is ugly! -->
   <% if current_owner.owner_profile != nil %>
   <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
   <ul>Your Bio:           <%= current_owner.bio %></ul>
-</li>
+
   <% end %>
 <a href ="/owners/profile">Configure Your Profile</a>
 <br>
+<br>
 <a href="/dogs/new">Add a Puppy!</a>
 
-<% binding.pry %>
 <h4>Your Puppies!</h4>
 <% @dogs.each do |dog| %>
-<li>
-  <ul><%=dog.name %></ul>
-  <% binding.pry %>
+  <ul><%=link_to(dog.name, controller: :dogs, action: :show, id: dog.id) %></ul>
 <% end %>
-</li>
 <a href="/logout">Logout</a>
 
 <% else %>

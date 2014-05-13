@@ -1,0 +1,18 @@
+<%= form_for(@dog) do |f| %>
+  <%= f.label(:name) %>
+  <%= f.text_field(:name) %>
+  <%= f.label(:age) %>
+  <%= f.number_field(:age) %>
+  <%= f.label(:sex_id) %>
+  <%= f.collection_select(:sex_id, @sexes, :id, :sex) %>
+  <%= f.label(:breed_id) %>
+  <%= f.collection_select(:breed_id, @breeds, :id, :name) %>
+  <%= f.label(:size_id) %>
+  <%= f.collection_select(:size_id, @sizes, :id, :name) %>
+  <%= f.label(:temperment) %>
+  <%= f.text_field(:temperment) %>
+  <%= f.label(:description) %>
+  <%= f.text_area(:description) %>
+  <%= f.hidden_field(:user_id, :value => current_owner.id) %>
+  <%= f.submit %>
+<% end %>
