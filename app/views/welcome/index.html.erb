@@ -27,13 +27,16 @@ You are an owner
 <li>
   <ul>Your Boro:          <%= current_owner.boro.name %></ul>
   <!-- # OPTIMIZE This neighborhood shit is ugly! -->
+  <% if current_owner.owner_profile != nil %>
   <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
-  <% binding.pry %>
   <ul>Your Bio:           <%= current_owner.bio %></ul>
 </li>
+  <% end %>
+<a href ="/owners/profile">Configure Your Profile</a>
+<br>
+<a href="/dogs/new">Add a Puppy!</a>
 
-<a href ="/owners/profile">Configure Profile</a>
-
+<% binding.pry %>
 <h4>Your Puppies!</h4>
 <p> This is where the puppies will populate </p>
 

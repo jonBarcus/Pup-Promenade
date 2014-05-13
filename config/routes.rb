@@ -1,34 +1,38 @@
-# == Route Map (Updated 2014-05-12 15:25)
+# == Route Map (Updated 2014-05-13 11:34)
 #
-#      Prefix Verb   URI Pattern                 Controller#Action
-#        root GET    /                           welcome#index
-#       users GET    /users(.:format)            users#index
-#             POST   /users(.:format)            users#create
-#    new_user GET    /users/new(.:format)        users#new
-#   edit_user GET    /users/:id/edit(.:format)   users#edit
-#        user GET    /users/:id(.:format)        users#show
-#             PATCH  /users/:id(.:format)        users#update
-#             PUT    /users/:id(.:format)        users#update
-#             DELETE /users/:id(.:format)        users#destroy
-#     walkers GET    /walkers(.:format)          walkers#index
-#             POST   /walkers(.:format)          walkers#create
-#  new_walker GET    /walkers/new(.:format)      walkers#new
-# edit_walker GET    /walkers/:id/edit(.:format) walkers#edit
-#      walker GET    /walkers/:id(.:format)      walkers#show
-#             PATCH  /walkers/:id(.:format)      walkers#update
-#             PUT    /walkers/:id(.:format)      walkers#update
-#             DELETE /walkers/:id(.:format)      walkers#destroy
-#      owners GET    /owners(.:format)           owners#index
-#             POST   /owners(.:format)           owners#create
-#   new_owner GET    /owners/new(.:format)       owners#new
-#  edit_owner GET    /owners/:id/edit(.:format)  owners#edit
-#       owner GET    /owners/:id(.:format)       owners#show
-#             PATCH  /owners/:id(.:format)       owners#update
-#             PUT    /owners/:id(.:format)       owners#update
-#             DELETE /owners/:id(.:format)       owners#destroy
-# session_new GET    /session/new(.:format)      session#new
-#     session POST   /session(.:format)          session#create
-#      logout GET    /logout(.:format)           session#destroy
+#          Prefix Verb   URI Pattern                 Controller#Action
+#            root GET    /                           welcome#index
+#         walkers GET    /walkers(.:format)          walkers#index
+#                 POST   /walkers(.:format)          walkers#create
+#      new_walker GET    /walkers/new(.:format)      walkers#new
+#     edit_walker GET    /walkers/:id/edit(.:format) walkers#edit
+#          walker GET    /walkers/:id(.:format)      walkers#show
+#                 PATCH  /walkers/:id(.:format)      walkers#update
+#                 PUT    /walkers/:id(.:format)      walkers#update
+#                 DELETE /walkers/:id(.:format)      walkers#destroy
+#          owners GET    /owners(.:format)           owners#index
+#                 POST   /owners(.:format)           owners#create
+#       new_owner GET    /owners/new(.:format)       owners#new
+#      edit_owner GET    /owners/:id/edit(.:format)  owners#edit
+#           owner GET    /owners/:id(.:format)       owners#show
+#                 PATCH  /owners/:id(.:format)       owners#update
+#                 PUT    /owners/:id(.:format)       owners#update
+#                 DELETE /owners/:id(.:format)       owners#destroy
+#            dogs GET    /dogs(.:format)             dogs#index
+#                 POST   /dogs(.:format)             dogs#create
+#         new_dog GET    /dogs/new(.:format)         dogs#new
+#        edit_dog GET    /dogs/:id/edit(.:format)    dogs#edit
+#             dog GET    /dogs/:id(.:format)         dogs#show
+#                 PATCH  /dogs/:id(.:format)         dogs#update
+#                 PUT    /dogs/:id(.:format)         dogs#update
+#                 DELETE /dogs/:id(.:format)         dogs#destroy
+#  owners_profile GET    /owners/profile(.:format)   owners#show
+#                 POST   /owners/profile(.:format)   owners#edit
+# walkers_profile GET    /walkers/profile(.:format)  walkers#show
+#                 POST   /walkers/profile(.:format)  walkers#edit
+#     session_new GET    /session/new(.:format)      session#new
+#         session POST   /session(.:format)          session#create
+#          logout GET    /logout(.:format)           session#destroy
 #
 
 Rails.application.routes.draw do
