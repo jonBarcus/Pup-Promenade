@@ -24,6 +24,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
+# PostgreSQL provides an hstore data type for storing arbitrarily complex structures in a column.
+# ActiveRecord 4.0 supports Hstore but casts all values in the store to a string. Further,
+# ActiveRecord does not provide discrete fields to access values directly in the hstore column.
+# The HstoreAccessor gem solves both of these issues.
+gem 'hstore_accessor'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development, :test do

@@ -7,13 +7,12 @@ class WalkersController < ApplicationController
   def new
     @walker = Walker.new
     @boros = Boro.all
-    @skills = Skill.all
+    # @skills = Skill.all
     @walker.build_walker_profile
   end
 
   def create
     @walker = Walker.new(walker_params)
-
     if @walker.save
       redirect_to("/")
     else
@@ -28,7 +27,18 @@ class WalkersController < ApplicationController
 
   def show
     @walker = Walker.find(session[:user_id])
+    @neighborhoods = Neighborhood.where(boro_id: @walker.boro_id)
     @walker_profile = @walker.walker_profile
+  end
+
+  def update
+    @walker = Walker.find(session[:user_id])
+    @walker_profile = @walker.walker_profile
+    if @walker.update(walker_params)
+      redirect_to("/")
+    else
+      render :show
+    end
   end
 
   def destroy
@@ -45,13 +55,16 @@ class WalkersController < ApplicationController
       :first_name,
       :last_name,
       :email,
+      :boro_id,
       :phone,
       :image_url,
+      :bio,
       :password,
       :password_confirmation,
-      :type_id,
-      :walker_profile_attributes => [:neighborhood_id, :dog_id, :skill_id, :recommendation_id]
-
+      :walker_profile_attributes => [:neighborhood_id,
+                                  :dog_id,
+                                  :skill_id,
+                                  :recommendation_id]
       )
   end
 end

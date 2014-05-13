@@ -5,17 +5,20 @@ Welcome!
 
 You are a walker!
 
-<a href="/users/profile">Configure Profile</a>
+<a href="/walkers/profile">Configure Profile</a>
 
-<p><h1>Name:</h1></p>
-<p><%= current_walker.first_name %> <%= current_walker.last_name %></p>
+<h3>Name:</h3></p>
+<%= current_walker.first_name %> <%= current_walker.last_name %></p>
 <img src="<%= current_walker.image_url %>" alt="profile picture">
-<p<h2>Email:</h2></p>
-<p><%= current_walker.email %></p>
-<p<h2>Phone:</h2></p>
-<p><%= current_walker.phone %></p>
 
-<%= link_to "configure profile", walkers_profile_path %>
+<li>
+<ul>Your Boro:          <%= current_walker.boro.name %></ul>
+  <ul>Your Neighborhoods:  < %= Neighborhood.find_by(id: current_walker.walker_profile.neighborhood_id).name %></ul>
+  <ul>Your Bio:            <%= current_walker.bio %></ul>
+
+</li>
+
+
 
 
 <% elsif owner_logged_in? %>
@@ -28,7 +31,6 @@ You are an owner
   <ul>Your Boro:          <%= current_owner.boro.name %></ul>
   <!-- # OPTIMIZE This neighborhood shit is ugly! -->
   <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
-  <% binding.pry %>
   <ul>Your Bio:           <%= current_owner.bio %></ul>
 </li>
 
