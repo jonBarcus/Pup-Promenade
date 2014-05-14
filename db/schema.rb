@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513153020) do
+ActiveRecord::Schema.define(version: 20140514153113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,10 +100,10 @@ ActiveRecord::Schema.define(version: 20140513153020) do
   create_table "walker_profiles", force: true do |t|
     t.integer  "skill_id"
     t.integer  "recommendation_id"
-    t.hstore   "neighborhood_id"
     t.integer  "walker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "neighborhood_ids",  default: [], array: true
   end
 
 end

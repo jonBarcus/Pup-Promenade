@@ -78,8 +78,6 @@ GEM
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
     hike (1.2.3)
-    hstore_accessor (0.6.0)
-      activesupport (>= 3.2.0)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -232,7 +230,6 @@ DEPENDENCIES
   guard
   guard-bundler
   guard-rspec
-  hstore_accessor
   httparty
   jasmine
   jbuilder (~> 2.0)

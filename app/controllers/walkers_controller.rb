@@ -28,7 +28,8 @@ class WalkersController < ApplicationController
   def show
     @walker = Walker.find(session[:user_id])
     @neighborhoods = Neighborhood.where(boro_id: @walker.boro_id)
-    @walker_profile = @walker.walker_profile
+    binding.pry
+    # @walker_profile = @walker.walker_profile
   end
 
   def update
@@ -62,7 +63,7 @@ class WalkersController < ApplicationController
       :bio,
       :password,
       :password_confirmation,
-      :walker_profile_attributes => [:neighborhood_id,
+      :walker_profile_attributes => [:neighborhood_ids,
                                   :dog_id,
                                   :skill_id,
                                   :recommendation_id]
