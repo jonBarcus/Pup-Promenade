@@ -10,7 +10,6 @@
 <%= form_for @walker do |f| %>
   <%= f.label(:image_url) %>
   <%= f.text_field(:image_url) %>
-  <% binding.pry %>
   <br>
     <%= f.fields_for :walker_profile, @walker.build_walker_profile do |profile| %>
       <%= profile.label(:neighborhood_ids) %>

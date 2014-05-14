@@ -11,14 +11,19 @@ You are a walker!
 <%= current_walker.first_name %> <%= current_walker.last_name %></p>
 <img src="<%= current_walker.image_url %>" alt="profile picture">
 
-<li>
-<ul>Your Boro:          <%= current_walker.boro.name %></ul>
+<ul>
+<li>Your Boro:          <%= current_walker.boro.name %></li>
   <% if current_walker.walker_profile != nil %>
-  <ul>Your Neighborhoods:  < %= Neighborhood.find_by(id: current_walker.walker_profile.neighborhood_id).name %></ul>
-  <ul>Your Bio:            <%= current_walker.bio %></ul>
+  <ul>Your Neighborhoods:
+    <% a = current_walker.walker_profile.neighborhood_ids[1..-1] %>
+    <% a.each do |hood| %>
+      <li><%= Neighborhood.find_by(id: hood).name %></li>
+    <% end %>
+  </ul>
+  <li>Your Bio:            <%= current_walker.bio %></li>
   <% end %>
 
-</li>
+</ul>
 
 <a href="/logout">Logout</a>
 

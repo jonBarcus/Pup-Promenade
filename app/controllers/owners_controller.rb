@@ -33,7 +33,6 @@ class OwnersController < ApplicationController
   def update
     @owner = Owner.find(session[:user_id])
     @owner_profile = @owner.owner_profile
-    binding.pry
     if @owner.update(owner_params)
       redirect_to("/")
     else
