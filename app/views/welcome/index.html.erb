@@ -7,24 +7,8 @@ You are a walker!
 
 <a href="/walkers/profile">Configure Profile</a>
 
-<h3>Name:</h3></p>
-<%= current_walker.first_name %> <%= current_walker.last_name %></p>
-<img src="<%= current_walker.image_url %>" alt="profile picture">
 
-<ul>
-<li>Your Boro:          <%= current_walker.boro.name %></li>
-  <% if current_walker.walker_profile != nil %>
-  <ul>Your Neighborhoods:
-    <!-- this is super weird, the first element is an empty string, hence the range -->
-    <% a = current_walker.walker_profile.neighborhood_ids[1..-1] %>
-    <% a.each do |hood| %>
-      <li><%= Neighborhood.find_by(id: hood).name %></li>
-    <% end %>
-  </ul>
-  <li>Your Bio:            <%= current_walker.bio %></li>
-  <% end %>
-
-</ul>
+<%= render 'walker_prof_info' %>
 
 <a href="/logout">Logout</a>
 
@@ -34,15 +18,8 @@ Welcome!
 
 You are an owner
 
-<h3><%= current_owner.first_name %> <%= current_owner.last_name %></h3>
+<%= render 'owner_prof_info' %>
 
-  <ul>Your Boro:          <%= current_owner.boro.name %></ul>
-  <!-- # OPTIMIZE This neighborhood shit is ugly! -->
-  <% if current_owner.owner_profile != nil %>
-  <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
-  <ul>Your Bio:           <%= current_owner.bio %></ul>
-
-  <% end %>
 <a href ="/owners/profile">Configure Your Profile</a>
 <br>
 <br>
@@ -52,9 +29,13 @@ You are an owner
 <a href="/dogs/new">Add a Puppy!</a>
 
 <h4>Your Puppies!</h4>
-<% @dogs.each do |dog| %>
-  <ul><%=link_to(dog.name, controller: :dogs, action: :show, id: dog.id) %></ul>
-<% end %>
+
+<ul>
+  <% @dogs.each do |dog| %>
+    <li><%=link_to(dog.name, controller: :dogs, action: :show, id: dog.id) %></li>
+  <% end %>
+</ul>
+
 <a href="/logout">Logout</a>
 
 <% else %>

@@ -18,6 +18,7 @@ class OwnersController < ApplicationController
     end
   end
 
+ # TODO: build edit functionality
   def edit
     @owner = Owner.includes(:owner_profile).find(session[:user_id])
     @owner.build_owner_profile unless @owner.owner_profile
@@ -27,7 +28,6 @@ class OwnersController < ApplicationController
     @owner = Owner.find(session[:user_id])
     @neighborhoods = Neighborhood.where(boro_id: @owner.boro_id)
     @dogs = Dog.all
-    @owner_profile = @owner.owner_profile
   end
 
   def update

@@ -1,0 +1,9 @@
+<h3><%= current_owner.first_name %> <%= current_owner.last_name %></h3>
+
+  <ul>Your Boro:          <%= current_owner.boro.name %></ul>
+  <!-- # OPTIMIZE This neighborhood shit is ugly! -->
+  <% if current_owner.owner_profile != nil %>
+  <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
+  <ul>Your Bio:           <%= current_owner.bio %></ul>
+
+  <% end %>

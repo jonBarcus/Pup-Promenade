@@ -1,0 +1,18 @@
+<p><h3>Name:</h3></p>
+<%= current_walker.first_name %> <%= current_walker.last_name %></p>
+<img src="<%= current_walker.image_url %>" alt="profile picture">
+
+<ul>
+  <li>Your Boro:          <%= current_walker.boro.name %></li>
+  <% if current_walker.walker_profile != nil %>
+  <ul>Your Neighborhoods:
+    <!-- this is super weird, the first element in the array when a
+    user adds neighborhoods is an empty string, hence the range that eliminates index 0 -->
+    <% a = current_walker.walker_profile.neighborhood_ids[1..-1] %>
+    <% a.each do |hood| %>
+      <li><%= Neighborhood.find_by(id: hood).name %></li>
+    <% end %>
+  </ul>
+  <li>Your Bio:            <%= current_walker.bio %></li>
+  <% end %>
+</ul>

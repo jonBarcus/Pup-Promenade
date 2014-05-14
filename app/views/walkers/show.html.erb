@@ -1,22 +1,5 @@
-<!-- need a form neighborhoods
+<h2>Please Set up your profile</h2>
 
-< %= profile.collection_select(:neighborhood_id, @neighborhoods, :id, :name) %> -->
+<%= render 'walker_config_form' %>
 
-<!-- need a form for dogs -->
-
-<!-- need a form for skills -->
-
-
-<%= form_for @walker do |f| %>
-  <%= f.label(:image_url) %>
-  <%= f.text_field(:image_url) %>
-  <br>
-    <%= f.fields_for :walker_profile, @walker.build_walker_profile do |profile| %>
-      <%= profile.label(:neighborhood_ids) %>
-      <%= profile.collection_select(:neighborhood_ids, @neighborhoods, :id, :name, {}, {multiple: :true}) %>
-  <% end %>
-  <br>
-  <%= f.label(:bio) %>
-  <%= f.text_area(:bio) %>
-  <%= f.submit %>
-<% end %>
+<a href="/">Go Back</a>

@@ -19,15 +19,18 @@ class WalkersController < ApplicationController
     end
   end
 
+  # TODO: build edit functionality
   def edit
     @walker = Walker.includes(:walker_profile).find(session[:user_id])
     @walker.build_walker_profile unless @walker.walker_profile
   end
 
+  # finds the Walker based on the User session id
+  # OPTIMIZE: persist the walker profile and edit it rather than rebuilding (needs confirming)
+  # The profile in the form in the show view gets rebuilt every time Should persist
   def show
     @walker = Walker.find(session[:user_id])
     @neighborhoods = Neighborhood.where(boro_id: @walker.boro_id)
-    @walker_profile = @walker.walker_profile
   end
 
   def update
@@ -49,6 +52,8 @@ class WalkersController < ApplicationController
 
   private
 
+  # In order to pass an array of id's into the neighborhood_ids paramaeter
+  # it has to be passed a value with an empty array.
   def walker_params
     params.require(:walker).permit(
       :first_name,
@@ -60,10 +65,9 @@ class WalkersController < ApplicationController
       :bio,
       :password,
       :password_confirmation,
-      :walker_profile_attributes => [:neighborhood_ids => []]
-                                   # :dog_id,
-                                  # :skill_id,
-                                  # :recommendation_id
-      )
+      :walker_profile_attributes => [:neighborhood_ids => []])
+
+                 # TODO: :dog_id, :skill_id, :recommendation_id
+
   end
 end
