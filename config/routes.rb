@@ -46,6 +46,9 @@ Rails.application.routes.draw do
   resources :owners
   resources :dogs
 
+  get "/search" => "search#index"
+  get "/search/results" => "search#results"
+
   get "/owners/profile" => "owners#show"
   post "/owners/profile" => "owners#edit"
 
