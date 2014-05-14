@@ -4,5 +4,4 @@
   <%= label_tag(:search_param, "Search for:") %>
   <%= select_tag "neighborhoods", options_from_collection_for_select(@neighborhoods, :id, :name), multiple: true %>
   <%= submit_tag("Search") %>
-  <% binding.pry %>
 <% end %>

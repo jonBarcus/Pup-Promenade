@@ -12,6 +12,8 @@ Sex.delete_all
 Size.delete_all
 Breed.delete_all
 User.delete_all
+Walker.delete_all
+WalkerProfile.delete_all
 
 
 queens = Boro.create({name: "Queens"})
@@ -119,3 +121,12 @@ akita_inu = Breed.create({name: "Akita Inu"})
 admin = User.create({first_name: "Admin", email: "admin@admin.com",
                      password: "hello1234", password_confirmation: "hello1234",
                      admin: true})
+
+
+
+test_walker = Walker.create({first_name: "Test", last_name: "Walker", email: "walker@test.com",
+  password: "hello1234", password_confirmation: "hello1234", boro_id: 1})
+walk_profile = WalkerProfile.new(walker_id: test_walker.id)
+walk_profile.update(neighborhood_ids: [1, 11])
+walk_profile.save
+

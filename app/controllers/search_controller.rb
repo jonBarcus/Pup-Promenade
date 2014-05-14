@@ -7,6 +7,7 @@ class SearchController < ApplicationController
 
   def results
     # this will call a module that will return results
+    SearchResults.new(search_params)
   end
 
 
