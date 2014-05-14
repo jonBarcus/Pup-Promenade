@@ -20,4 +20,7 @@ class Walker < User
   has_secure_password
   has_one :walker_profile
   accepts_nested_attributes_for :walker_profile
+
+  belongs_to :boro
+  has_many :neighborhoods, through: :boro
 end

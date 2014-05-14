@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512201553) do
+ActiveRecord::Schema.define(version: 20140514153113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "boros", force: true do |t|
     t.string   "name"
@@ -97,13 +98,12 @@ ActiveRecord::Schema.define(version: 20140512201553) do
   end
 
   create_table "walker_profiles", force: true do |t|
-    t.integer  "neighborhood_id"
-    t.integer  "dog_id"
     t.integer  "skill_id"
     t.integer  "recommendation_id"
     t.integer  "walker_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "neighborhood_ids",  default: [], array: true
   end
 
 end

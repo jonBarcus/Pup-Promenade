@@ -5,6 +5,7 @@
   <%= f.text_field(:last_name) %>
   <%= f.label(:email) %>
   <%= f.email_field(:email) %>
+  <br>
   <%= f.label(:boro_id) %>
   <%= f.collection_select(:boro_id, @boros, :id, :name) %>
   <br>
