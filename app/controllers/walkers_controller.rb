@@ -61,7 +61,7 @@ class WalkersController < ApplicationController
       :password,
       :password_confirmation,
       :walker_profile_attributes => [:neighborhood_ids => []]
-                                   :dog_id,
+                                   # :dog_id,
                                   # :skill_id,
                                   # :recommendation_id
       )
