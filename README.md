@@ -1,6 +1,7 @@
 # PupPromenade - v. 0.0.0
 
 ---
+(https://travis-ci.org/jonBarcus/Pup-Promenade.svg?branch=develop)
 [![Coverage Status](https://coveralls.io/repos/jonBarcus/Pup-Promenade/badge.png)](https://coveralls.io/r/jonBarcus/Pup-Promenade)
 
 ### Heroku
