@@ -15,6 +15,7 @@ You are a walker!
 <li>Your Boro:          <%= current_walker.boro.name %></li>
   <% if current_walker.walker_profile != nil %>
   <ul>Your Neighborhoods:
+    <!-- this is super weird, the first element is an empty string, hence the range -->
     <% a = current_walker.walker_profile.neighborhood_ids[1..-1] %>
     <% a.each do |hood| %>
       <li><%= Neighborhood.find_by(id: hood).name %></li>
