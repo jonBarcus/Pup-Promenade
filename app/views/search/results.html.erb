@@ -1,0 +1,7 @@
+<h3>Walkers in your Neighborhood(s)</h3>
+
+<a href="/search">Search Again</a>
+
+<% @results.each do |walker| %>
+<p>Name: <%= walker.first_name %> <%= walker.last_name %> </p>
+<% end %>

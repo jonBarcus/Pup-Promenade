@@ -23,8 +23,15 @@ module SearchResults
     # This returns an array of walker objects that are uniq
     # So, while the @results_array may be populated with two of the same walkers
     # the return will eliminate the duplicate objects
-    return @results_array[0].uniq
-
+    if @results_array != nil
+      # Flatten is necessary to call on the objects inside of the array
+      # .uniq does not work when directly called on @results_array
+      return @results_array.flatten.uniq
+    else
+      @error_message = ["No matches found"]
+      puts "ERROR:  No matches found"
+      return @error_message
+    end
   end
 
 end
