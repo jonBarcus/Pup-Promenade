@@ -13,13 +13,14 @@ You are a walker!
 
 <li>
 <ul>Your Boro:          <%= current_walker.boro.name %></ul>
-
+  <% if current_walker.walker_profile != nil %>
   <ul>Your Neighborhoods:  < %= Neighborhood.find_by(id: current_walker.walker_profile.neighborhood_id).name %></ul>
   <ul>Your Bio:            <%= current_walker.bio %></ul>
+  <% end %>
 
 </li>
 
-
+<a href="/logout">Logout</a>
 
 
 <% elsif owner_logged_in? %>
