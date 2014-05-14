@@ -127,6 +127,12 @@ admin = User.create({first_name: "Admin", email: "admin@admin.com",
 test_walker = Walker.create({first_name: "Test", last_name: "Walker", email: "walker@test.com",
   password: "hello1234", password_confirmation: "hello1234", boro_id: 1})
 walk_profile = WalkerProfile.new(walker_id: test_walker.id)
-walk_profile.update(neighborhood_ids: [1, 11])
+walk_profile.update(neighborhood_ids: [1, 3])
 walk_profile.save
+
+second_walker = Walker.create({first_name: "Second", last_name: "Walker", email: "second@test.com",
+  password: "hello1234", password_confirmation: "hello1234", boro_id: 1})
+  second_profile = WalkerProfile.new(walker_id: second_walker.id)
+  second_profile.update(neighborhood_ids: [1, 2])
+  second_profile.save
 
