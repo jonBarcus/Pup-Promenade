@@ -1,48 +1,72 @@
-<h1>Welcome to pupPromenade</h1>
+<div class="small-12 columns">
 
-<% if walker_logged_in? %>
-Welcome!
+  <h1>Welcome to pupPromenade</h1>
 
-You are a walker!
+  <% if walker_logged_in? %>
+  Welcome!
 
-<a href="/walkers/profile">Configure Profile</a>
+  You are a walker!
 
-
-<%= render 'walker_prof_info' %>
-
-<a href="/logout">Logout</a>
+  <a href="/walkers/profile">Configure Profile</a>
 
 
-<% elsif owner_logged_in? %>
-Welcome!
+  <%= render 'walker_prof_info' %>
 
-You are an owner
+  <a href="/logout">Logout</a>
 
-<%= render 'owner_prof_info' %>
 
-<a href ="/owners/profile">Configure Your Profile</a>
-<br>
-<br>
-<a href = "/search">Search for a Walker</a>
-<br>
-<br>
-<a href="/dogs/new">Add a Puppy!</a>
+  <% elsif owner_logged_in? %>
+  Welcome!
 
-<h4>Your Puppies!</h4>
+  You are an owner
 
-<ul>
-  <% @dogs.each do |dog| %>
-    <li><%=link_to(dog.name, controller: :dogs, action: :show, id: dog.id) %></li>
+  <%= render 'owner_prof_info' %>
+
+  <a href ="/owners/profile">Configure Your Profile</a>
+  <a href = "/search">Search for a Walker</a>
+  <a href="/dogs/new">Add a Puppy!</a>
+
+  <h4>Your Puppies!</h4>
+
+  <ul>
+    <% @dogs.each do |dog| %>
+      <li><%=link_to(dog.name, controller: :dogs, action: :show, id: dog.id) %></li>
+    <% end %>
+  </ul>
+
+  <a href="/logout">Logout</a>
+
+  <% else %>
+
   <% end %>
-</ul>
+</div>
 
-<a href="/logout">Logout</a>
+<div class="fixed">
+  <nav class="top-bar" data-topbar>
+    <section class="top-bar-section">
+      <ul class="right">
+        <% if walker_logged_in? || owner_logged_in? %>
+        <li class="active">
+          <a href="logout">Logout</a>
+        </li>
+        <% else %>
 
-<% else %>
-
-You need to sign up or sign in! <br><br>
-<a href="walkers/new">Sign Up as a Dog Walker</a> |
-<a href="owners/new">Sign Up as a Dog Owner</a> |
-<a href="/session/new">Login</a>
-
-<% end %>
+        <li class="has-dropdown">
+          <a>Sign Up</a>
+          <ul class="dropdown">
+            <li>
+              <a href="owners/new">Sign Up as a Dog Owner</a>
+            </li>
+            <li>
+              <a href="walkers/new">Sign Up as a Dog Walker</a>
+            </li>
+          </ul>
+        </li>
+        <li class="active">
+          <a href="/session/new">Login</a>
+        </li>
+      </ul>
+      <% end %>
+    </section>
+  </nav>
+</div>
