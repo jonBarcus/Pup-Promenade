@@ -15,3 +15,8 @@
  *= require foundation_and_overrides
 
  */
+
+#walker_walker_profile_attributes_neighborhood_ids {
+  height: 150px;
+}
+
