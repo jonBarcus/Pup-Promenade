@@ -3,38 +3,39 @@
   <h1>Welcome to pupPromenade</h1>
 
   <% if walker_logged_in? %>
-  Welcome!
+    <h4>Dog Walker's Profile</h4>
 
-  You are a walker!
-
-  <a href="/walkers/profile">Configure Profile</a>
+    <a href="/walkers/profile">Configure Profile</a>
 
 
-  <%= render 'walker_prof_info' %>
 
-  <a href="/logout">Logout</a>
-
-
+    <%= render 'walker_prof_info' %>
   <% elsif owner_logged_in? %>
-  Welcome!
 
-  You are an owner
+  <ul>
+    <p>
+      <h4>Owner's Profile</h4> <a href="/dogs/new">Add your pup!</a>
+    </p>
+    <p>
+      <a href = "/search">Search for a Walker</a>
+    </p>
+    <p>
+      <a href ="/owners/profile">Configure Your Profile</a>
+    </p>
+  </ul>
 
   <%= render 'owner_prof_info' %>
 
-  <a href ="/owners/profile">Configure Your Profile</a>
-  <a href = "/search">Search for a Walker</a>
-  <a href="/dogs/new">Add a Puppy!</a>
 
-  <h4>Your Puppies!</h4>
 
+  <ul>
+    <h2><small>Your Puppies!</small></h2>
+  </ul>
   <ul>
     <% @dogs.each do |dog| %>
       <li><%=link_to(dog.name, controller: :dogs, action: :show, id: dog.id) %></li>
     <% end %>
   </ul>
-
-  <a href="/logout">Logout</a>
 
   <% else %>
 
