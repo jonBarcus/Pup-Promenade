@@ -4,7 +4,7 @@ describe "visiting the website" do
  # OPTIMIZE use factory girl to build boro table so we can select boro_id
   describe "sign up process" do
     before do
-      create(:boros)
+      create(:boro)
     end
     it "should allow a visitor to signup as an owner" do
       visit root_path
@@ -17,7 +17,7 @@ describe "visiting the website" do
       fill_in 'Password confirmation', with: 'jeffjeff'
       fill_in 'Phone', with: '5555555555'
       click_button 'Create Owner'
-      expect(page).to have_content('Welcome to pupPromenade')
+      expect(page).to have_content('pupPromenade')
     end
     it "should allow a visitor to signup as a walker" do
       visit root_path
@@ -25,7 +25,7 @@ describe "visiting the website" do
       fill_in 'First name', with: 'Jeff'
       fill_in 'Last name', with: 'Greco'
       fill_in 'Email', with: 'jeff@jeff.com'
-      # select("Queens", from: 'select#owner_boro_id')
+       select("Queens", from: 'select#owner_boro_id')
       fill_in 'Password', with: 'jeffjeff'
       fill_in 'Password confirmation', with: 'jeffjeff'
       fill_in 'Phone', with: '5555555555'

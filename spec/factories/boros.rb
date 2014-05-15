@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :boros do
+  factory :boro do
     name 'Queens'
     # association :neighborhood
   end
@@ -7,4 +7,3 @@ FactoryGirl.define do
   #   name "Queens"
   # end
 end
-
