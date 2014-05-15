@@ -1,11 +1,19 @@
-<div class="small-12 columns">
+<!-- <div class="small-12 large-6 columns"> -->
 
-  <h1>Welcome to pupPromenade</h1>
-
+  <!-- <div class ="row"> -->
+    <div id="title-div">
+      <h1 id="welcome-title">pupPromenade</h1>
+    </div>
+  <!-- </div> -->
   <% if walker_logged_in? %>
     <h4>Dog Walker's Profile</h4>
 
     <a href="/walkers/profile">Configure Profile</a>
+
+  <a href="/walkers/profile">Configure Profile</a>
+
+
+  <%= render 'walker_prof_info' %>
 
 
 
@@ -40,7 +48,7 @@
   <% else %>
 
   <% end %>
-</div>
+<!-- </div> -->
 
 <div class="fixed">
   <nav class="top-bar" data-topbar>
