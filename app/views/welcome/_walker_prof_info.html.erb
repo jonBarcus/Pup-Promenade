@@ -1,18 +1,31 @@
-<p><h3>Name:</h3></p>
-<%= current_walker.first_name %> <%= current_walker.last_name %></p>
-<img src="<%= current_walker.image_url %>" alt="profile picture">
-
 <ul>
-  <li>Your Boro:          <%= current_walker.boro.name %></li>
+  <h2><small>Name:</small></h2>
+
+  <p>
+    <%= current_walker.first_name %> <%= current_walker.last_name %>
+  </p>
+
+  <ul class="small-block-grid-3">
+    <li><!-- block 1 --></li>
+    <li><!-- block 2 --></li>
+    <li><img src="<%= current_walker.image_url %>" alt="profile picture"></li>
+  </ul>
+
+
+  <h2> <small>Your Boro:</small> </h2>
+  <%= current_walker.boro.name %>
+
   <% if current_walker.walker_profile != nil %>
-  <ul>Your Neighborhoods:
+  <h2> <small>Your Neighborhoods:</small> </h2
     <!-- this is super weird, the first element in the array when a
-    user adds neighborhoods is an empty string, hence the range that eliminates index 0 -->
+    user adds neighborhoods is an empty string, hence the range that eliminates index -->
     <% a = current_walker.walker_profile.neighborhood_ids[1..-1] %>
     <% a.each do |hood| %>
-      <li><%= Neighborhood.find_by(id: hood).name %></li>
+      <p><%= Neighborhood.find_by(id: hood).name %></p>
     <% end %>
-  </ul>
-  <li>Your Bio:            <%= current_walker.bio %></li>
+
+
+ <h2><small>Your Bio: </small></h2>
+ <%= current_walker.bio %>
   <% end %>
 </ul>

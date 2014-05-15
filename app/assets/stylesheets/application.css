@@ -12,4 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+
+#walker_walker_profile_attributes_neighborhood_ids {
+  height: 150px;
+}
+
+#welcome-title {
+  text-align: center;
+  background-color: grey;
+  /*margin-top: 120px;*/
+}
+
+#title-div {
+  vertical-align: middle;
+}
