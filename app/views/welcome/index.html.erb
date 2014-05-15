@@ -1,9 +1,7 @@
 <!-- <div class="small-12 large-6 columns"> -->
 
   <!-- <div class ="row"> -->
-    <div id="title-div">
-      <h1 id="welcome-title">pupPromenade</h1>
-    </div>
+
   <!-- </div> -->
   <% if walker_logged_in? %>
     <h4>Dog Walker's Profile</h4>
@@ -47,6 +45,11 @@
 <div class="fixed">
   <nav class="top-bar" data-topbar>
     <section class="top-bar-section">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">pupPromenade</a></h1>
+      </li>
+      </ul>
       <ul class="right">
         <% if walker_logged_in? || owner_logged_in? %>
         <li class="active">
@@ -58,10 +61,10 @@
           <a>Sign Up</a>
           <ul class="dropdown">
             <li>
-              <a href="owners/new">Sign Up as a Dog Owner</a>
+              <a href="owners/new">as a Dog Owner</a>
             </li>
             <li>
-              <a href="walkers/new">Sign Up as a Dog Walker</a>
+              <a href="walkers/new">as a Dog Walker</a>
             </li>
           </ul>
         </li>
@@ -69,7 +72,18 @@
           <a href="/session/new">Login</a>
         </li>
       </ul>
-      <% end %>
+
     </section>
   </nav>
 </div>
+
+<div id="wrapper">
+  <div id="title-text">
+    <h3 id="welcome-text">Welcome to</h3>
+  </div>
+  <div id="title-div">
+    <h1 id="welcome-title">pupPromenade</h1>
+  </div>
+  <p id="slogan">Find a walker for your tail-wagger</p>
+</div>
+<% end %>

@@ -21,12 +21,37 @@
   height: 150px;
 }
 
+#wrapper {
+  margin-top: 15%;
+}
+
+#welcome-text {
+  text-align: center;
+  margin-bottom: -18px;
+}
+
 #welcome-title {
   text-align: center;
-  background-color: grey;
-  /*margin-top: 120px;*/
 }
 
 #title-div {
   vertical-align: middle;
+}
+
+#slogan {
+  margin-top: -10px;
+  text-align: center;
+  font-style: italic;
+}
+
+.profile-pic {
+  top: 0px;
+  right: 0px;
+  position: absolute;
+  width: auto;
+  max-width: 50%;
+  height: auto;
+  max-height: 50%;
+  margin-top: 50px;
+  margin-right: 10px;
 }
