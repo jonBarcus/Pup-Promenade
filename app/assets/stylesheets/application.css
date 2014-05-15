@@ -15,3 +15,13 @@
  *= require foundation_and_overrides
 
  */
+
+#welcome-title {
+  text-align: center;
+  background-color: grey;
+  /*margin-top: 120px;*/
+}
+
+#title-div {
+  vertical-align: middle;
+}
