@@ -1,9 +1,26 @@
-<h3><%= current_owner.first_name %> <%= current_owner.last_name %></h3>
+<ul>
+  <h2><small>Name:</small></h2>
 
-  <ul>Your Boro:          <%= current_owner.boro.name %></ul>
+  <p>
+    <%= current_owner.first_name %> <%= current_owner.last_name %>
+  </p>
+
+   <ul class="small-block-grid-3">
+    <li><!-- block 1 --></li>
+    <li><!-- block 2 --></li>
+    <li><img src="<%= current_owner.image_url %>" alt="profile picture"></li>
+  </ul>
+
+  <h2> <small>Your Boro:</small> </h2>
+  <%= current_owner.boro.name %>
   <!-- # OPTIMIZE This neighborhood shit is ugly! -->
-  <% if current_owner.owner_profile != nil %>
-  <ul>Your Neighborhood:  <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %></ul>
-  <ul>Your Bio:           <%= current_owner.bio %></ul>
+    <% if current_owner.owner_profile != nil %>
+      <h2> <small>Your Neighborhoods:</small> </h2>
+        <p>
+          <%= Neighborhood.find_by(id: current_owner.owner_profile.neighborhood_id).name %>
+        </p>
+      <h2><small>Your Bio: </small></h2>
+   <%= current_owner.bio %>
 
-  <% end %>
+    <% end %>
+</ul>
