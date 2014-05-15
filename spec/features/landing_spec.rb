@@ -34,6 +34,9 @@ describe "visiting the website" do
     end
   end
   describe 'sign in process' do
+    before do
+      create(:boro)
+    end
     it "should allow a user to sign in as a owner"do
       visit root_path
       click_link "as a Dog Owner"
@@ -50,7 +53,7 @@ describe "visiting the website" do
         fill_in 'Email', with: 'jeff@jeff.com'
         fill_in 'Password', with: 'jeffjeff'
         click_button 'Login'
-        expect(page).to have_content('owner')
+        expect(page).to have_content("Owner's Profile")
     end
   end
 end
